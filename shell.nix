@@ -1,4 +1,9 @@
 { pkgs ? import <nixpkgs> {
+    overlays = [                                                                                                                                                                                            
+      (import (builtins.fetchTarball {                                                                                                                                                                      
+        url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;                                                                                                                
+      }))                                                                                                                                                                                                   
+    ];   
   }
 }:
 with pkgs;
@@ -28,7 +33,7 @@ mkShell {
     tmux
     git
     nixpkgs-fmt
-    neovim
+    neovim-nightly
 
     fd
     ripgrep
