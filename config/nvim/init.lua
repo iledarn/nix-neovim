@@ -79,6 +79,9 @@ require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-nvim-lua'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
@@ -94,6 +97,10 @@ require('packer').startup(function()
   use 'tree-sitter/tree-sitter-python'
   -- vim plugin which shows a git diff in the sign solumn
   use 'airblade/vim-gitgutter'
+  -- working with sql databases
+  use 'tpope/vim-dadbod' -- a more modern take on dbext.vim
+  use { "kristijanhusak/vim-dadbod-completion" }
+  use { "kristijanhusak/vim-dadbod-ui" }
 end)
 
 --Set colorscheme (order is important here)
@@ -259,7 +266,7 @@ table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
 require('lspconfig').sumneko_lua.setup {
-  cmd = { vim.fn.getenv 'HOME' .. '/.local/bin/sumneko_lua/bin/Linux/lua-language-server' },
+  cmd = { vim.fn.getenv 'LUA_LANGUAGE_SERVER' },
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -331,8 +338,12 @@ cmp.setup {
     end,
   },
   sources = {
+  -- order is matter - it shows priority
     { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
     { name = 'luasnip' },
+    { name = 'path' },
+    { name = 'buffer', keyword_length = 5 },
   },
 }
 
