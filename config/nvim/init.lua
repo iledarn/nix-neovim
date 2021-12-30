@@ -101,6 +101,8 @@ require('packer').startup(function()
   use 'tpope/vim-dadbod' -- a more modern take on dbext.vim
   use { "kristijanhusak/vim-dadbod-completion" }
   use { "kristijanhusak/vim-dadbod-ui" }
+  -- explorer
+  use { "ms-jpq/chadtree" }
 end)
 
 --Set colorscheme (order is important here)
