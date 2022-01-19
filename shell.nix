@@ -45,6 +45,7 @@ in
 
   shellHook = ''
     mkdir -p local/share/nvim
+    mkdir -p local/share/nvim/site/pack/packer/start
     set -a
     source env.sh
     set +a
