@@ -23,11 +23,12 @@ It looks very promising.
 
 ## Usage
 
+```
 cd $HOME
 git clone https://github.com/iledarn/nix-neovim.git
 from project's root folder:
 nix-shell ~/nix-neovim/shell.nix
 nvim opens
 :PackerInstall
-
+```
 
