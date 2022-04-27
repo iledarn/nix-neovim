@@ -65,6 +65,7 @@ require('packer').startup(function()
   use 'morhetz/gruvbox'
   use 'sainnhe/gruvbox-material'
   use 'dracula/vim'
+  use 'NLKNguyen/papercolor-theme'
   -- use 'itchyny/lightline.vim' -- Fancier statusline
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
@@ -108,8 +109,10 @@ end)
 --Set colorscheme (order is important here)
 vim.o.termguicolors = true
 vim.g.onedark_terminal_italics = 2
-vim.cmd [[colorscheme onedark]]
-vim.cmd [[colorscheme gruvbox-material]]
+-- vim.cmd [[colorscheme onedark]]
+-- vim.cmd [[colorscheme PaperColor]]
+-- vim.cmd [[colorscheme gruvbox-material]]
+vim.cmd [[colorscheme PaperColor]]
 
 vim.cmd [[
 set nobackup
@@ -352,6 +355,7 @@ cmp.setup {
 vim.cmd [[
 nmap <leader><Tab> :b#<cr>
 nmap <leader>w :w<cr>
+nmap <leader>fs :w<cr>
 ]]
 -- airline settings
 vim.cmd [[
