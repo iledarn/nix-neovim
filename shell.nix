@@ -44,11 +44,12 @@ in
   ];
 
   shellHook = ''
-    mkdir -p local/share/nvim
-    mkdir -p local/share/nvim/site/pack/packer/start
+    mkdir -p ~/nix-neovim/local/share/nvim
+    mkdir -p ~/nix-neovim/local/share/nvim/site/pack/packer/start
     set -a
-    source env.sh
+    source ~/nix-neovim/env.sh
     set +a
-    alias nvim="nvim -u $(pwd)/config/nvim/init.lua"
+    alias nvim="nvim -u ~/nix-neovim/config/nvim/init.lua"
+    nvim
   '';
 }

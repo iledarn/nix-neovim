@@ -21,6 +21,13 @@ Once I see what capabilities Nix provides, I immediately start to think about it
 There is a project already that I plan to use as a starting point - [A starting point for neovim](https://github.com/nvim-lua/kickstart.nvim).
 It looks very promising.
 
+## Usage
 
+cd $HOME
+git clone https://github.com/iledarn/nix-neovim.git
+from project's root folder:
+nix-shell ~/nix-neovim/shell.nix
+nvim opens
+:PackerInstall
 
 
