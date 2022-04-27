@@ -356,6 +356,7 @@ vim.cmd [[
 nmap <leader><Tab> :b#<cr>
 nmap <leader>w :w<cr>
 nmap <leader>fs :w<cr>
+set clipboard+=unnamedplus
 ]]
 -- airline settings
 vim.cmd [[
