@@ -37,6 +37,7 @@ in
     nodePackages.diagnostic-languageserver
     nodePackages.json-server
     nodePackages.pyright
+    nodePackages.typescript-language-server
     rnix-lsp
     rust-analyzer
     clang-tools
