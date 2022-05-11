@@ -105,8 +105,6 @@ require('packer').startup(function()
   use { "kristijanhusak/vim-dadbod-ui" }
   -- explorer
   use { "ms-jpq/chadtree" }
-  -- funcy plugins
-  use { "mhinz/vim-startify" }
 end)
 
 --Set colorscheme (order is important here)
