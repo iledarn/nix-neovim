@@ -115,7 +115,10 @@ vim.g.onedark_terminal_italics = 2
 -- vim.cmd [[colorscheme onedark]]
 -- vim.cmd [[colorscheme PaperColor]]
 -- vim.cmd [[colorscheme gruvbox-material]]
-vim.cmd [[colorscheme PaperColor]]
+vim.cmd [[
+colorscheme PaperColor
+set background=light
+]]
 
 vim.cmd [[
 set nobackup
