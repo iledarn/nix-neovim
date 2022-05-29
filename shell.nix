@@ -31,6 +31,8 @@ in
     nixpkgs-fmt
     # neovim-nightly
     neovim
+    cowsay
+    jq
 
     fd
     ripgrep
