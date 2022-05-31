@@ -55,6 +55,7 @@ require('packer').startup(function()
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-surround'
   use 'tpope/vim-rsi'
+  use 'tpope/vim-repeat'
   use 'christoomey/vim-tmux-navigator'
   use 'roxma/vim-tmux-clipboard'
   -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management
