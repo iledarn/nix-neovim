@@ -33,6 +33,7 @@ in
     neovim
     cowsay
     jq
+    lazygit
 
     fd
     ripgrep

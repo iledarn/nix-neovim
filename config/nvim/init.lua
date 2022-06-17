@@ -48,6 +48,7 @@ packer.init {
 local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
+  use 'kdheepak/lazygit.nvim' -- Git commands in nvim
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
@@ -392,4 +393,8 @@ au FileType python setlocal equalprg=black\ -\ 2>/dev/null
 au FileType xml :set sw=4 ts=4 et
 au FileType html :set sw=4 ts=4 et
 au FileType javascript :set sw=4 ts=4 et
+]]
+
+vim.cmd [[
+nnoremap <silent> <leader>gg :LazyGit<CR>
 ]]
