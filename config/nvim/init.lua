@@ -74,6 +74,7 @@ require('packer').startup(function()
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use 'jreybert/vimagit'
   -- Add git related info in the signs columns and popups
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   -- Highlight, edit, and navigate code using a fast incremental parsing library
@@ -107,6 +108,9 @@ require('packer').startup(function()
   use { "kristijanhusak/vim-dadbod-ui" }
   -- explorer
   use { "ms-jpq/chadtree" }
+  -- fzf
+  use { "junegunn/fzf" }
+  use { 'junegunn/fzf.vim', requires = 'junegunn/fzf' }
 end)
 
 --Set colorscheme (order is important here)
@@ -117,7 +121,7 @@ vim.g.onedark_terminal_italics = 2
 -- vim.cmd [[colorscheme gruvbox-material]]
 vim.cmd [[
 colorscheme PaperColor
-set background=light
+set background=dark
 ]]
 
 vim.cmd [[
@@ -393,8 +397,18 @@ au FileType python setlocal equalprg=black\ -\ 2>/dev/null
 au FileType xml :set sw=4 ts=4 et
 au FileType html :set sw=4 ts=4 et
 au FileType javascript :set sw=4 ts=4 et
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set smarttab
+set smartindent
+set autoindent
+set cindent
+set expandtab
 ]]
 
 vim.cmd [[
-nnoremap <silent> <leader>gg :LazyGit<CR>
+nmap <leader>ff :Files<cr>
+nmap <leader>* :Ag <c-r>=expand("<cword>")<cr><cr>
+nmap <leader>// :Ag<space>
 ]]

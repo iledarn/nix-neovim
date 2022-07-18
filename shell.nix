@@ -37,6 +37,8 @@ in
 
     fd
     ripgrep
+    fzf
+    silver-searcher
     nodePackages.diagnostic-languageserver
     nodePackages.json-server
     nodePackages.pyright
