@@ -394,6 +394,7 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 
 vim.cmd [[
 au FileType python setlocal equalprg=black\ -\ 2>/dev/null
+au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 au FileType xml :set sw=4 ts=4 et
 au FileType html :set sw=4 ts=4 et
 au FileType javascript :set sw=4 ts=4 et

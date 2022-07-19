@@ -34,6 +34,7 @@ in
     cowsay
     jq
     lazygit
+    libxml2
 
     fd
     ripgrep
