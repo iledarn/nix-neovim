@@ -5,6 +5,10 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.cmd [[
 set runtimepath-=~/.config/nvim
 set runtimepath-=~/.config/nvim/after
@@ -107,7 +111,13 @@ require('packer').startup(function()
     use { "kristijanhusak/vim-dadbod-completion" }
     use { "kristijanhusak/vim-dadbod-ui" }
     -- explorer
-    use { "ms-jpq/chadtree" }
+    -- use { "ms-jpq/chadtree" }
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+    }
     -- fzf
     use { "junegunn/fzf" }
     use { 'junegunn/fzf.vim', requires = 'junegunn/fzf' }
@@ -181,7 +191,8 @@ require("aerial").setup({
     end
 })
 --Add leader shortcuts
-vim.api.nvim_set_keymap('n', '<leader>\\', [[<cmd>CHADopen<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>\\', [[<cmd>NvimTreeToggle<CR>]], { })
+vim.api.nvim_set_keymap('n', '<leader>\\\\', [[<cmd>NvimTreeFindFile<CR>]], { })
 vim.api.nvim_set_keymap('n', '<leader><space>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>sf', [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>sb', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], { noremap = true, silent = true })
@@ -281,15 +292,15 @@ local on_attach = function(_, bufnr)
 end
 
 -- nvim-cmp supports additional completion capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Enable the following language servers
 local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
-        capabilities = capabilities,
+        -- capabilities = capabilities,
     }
 end
 
@@ -386,6 +397,7 @@ nmap <leader><Tab> :b#<cr>
 nmap <leader>w :w<cr>
 nmap <leader>fs :w<cr>
 set clipboard+=unnamedplus
+set clipboard^=unnamed,unnamedplus
 ]]
 -- airline settings
 vim.cmd [[
@@ -431,3 +443,28 @@ nmap <leader>ff :Files<cr>
 nmap <leader>* :Ag <c-r>=expand("<cword>")<cr><cr>
 nmap <leader>// :Ag<space>
 ]]
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
+-- empty setup using defaults
+-- require("nvim-tree").setup()
+
+-- OR setup with some options
+require("nvim-tree").setup({
+    sort_by = "case_sensitive",
+    view = {
+        adaptive_size = false,
+        mappings = {
+            list = {
+                { key = "u", action = "dir_up" },
+            },
+        },
+    },
+    renderer = {
+        group_empty = true,
+    },
+    filters = {
+        dotfiles = true,
+    },
+})
