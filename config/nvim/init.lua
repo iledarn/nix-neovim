@@ -191,6 +191,7 @@ require("aerial").setup({
     end
 })
 --Add leader shortcuts
+vim.api.nvim_set_keymap('n', '<leader>o', [[<cmd>AerialToggle<CR>]], { })
 vim.api.nvim_set_keymap('n', '<leader>\\', [[<cmd>NvimTreeToggle<CR>]], { })
 vim.api.nvim_set_keymap('n', '<leader>\\\\', [[<cmd>NvimTreeFindFile<CR>]], { })
 vim.api.nvim_set_keymap('n', '<leader><space>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
