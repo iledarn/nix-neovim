@@ -39,6 +39,7 @@ in mkShell {
     nodePackages.diagnostic-languageserver
     nodePackages.json-server
     nodePackages.pyright
+    nodePackages.prettier
     nodePackages.typescript-language-server
     rnix-lsp
     rust-analyzer

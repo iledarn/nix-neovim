@@ -126,6 +126,8 @@ require('packer').startup(function()
         'stevearc/aerial.nvim',
         config = function() require('aerial').setup() end
     }
+    -- prettier
+    use { "prettier/vim-prettier" }
 end)
 
 --Set colorscheme (order is important here)
