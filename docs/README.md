@@ -3,7 +3,7 @@ Nixifying my Neovim
 
 ## Objective
 
-To have a quick, consistent, and isolated way of Neovim installation itself along with my customizations of it and installed pre-requisites.
+To have a quick, consistent, and isolated way of Neovim installation itself along with my customizations of it and installed pre-requisites/dependencies.
 
 ## Why Nix
 
