@@ -416,6 +416,10 @@ nmap <leader>* :Ag <c-r>=expand("<cword>")<cr><cr>
 nmap <leader>// :Ag<space>
 ]]
 
+vim.cmd [[
+let g:db_ui_use_nerd_fonts = 1
+]]
+
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
