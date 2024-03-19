@@ -41,9 +41,10 @@ in mkShell {
     nodePackages.pyright
     nodePackages.prettier
     nodePackages.typescript-language-server
-    rnix-lsp
+#    rnix-lsp
     rust-analyzer
     clang-tools
+    postgresql
     (lib.optional pkgs.stdenv.isLinux sumneko-lua-language-server)
   ];
 
